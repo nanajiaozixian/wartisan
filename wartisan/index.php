@@ -1,7 +1,23 @@
+<?php 
+
+if ( isset($_POST['submit']) && ($_POST['submit'] == 'submit')){
+    
+    $file = "email.txt";
+    $current = file_get_contents($file);
+    $email = stripcslashes($_POST['mailbox']);
+    if (strstr($current,$email) == null){     
+        $current .= $email."\r\n";
+    }
+    file_put_contents($file, $current);
+}
+
+
+
+?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>www.wartisan.com</title>
+<title>wartisan</title>
 <link rel="stylesheet" href="style/css.css">
 <link rel="stylesheet" href="style/jquery-ui-1.10.3.custom.min.css">
 <script src="js/jquery-1.9.1.js"></script>
@@ -15,12 +31,13 @@
     	<div class="header"></div> 
         <div class="content">
         	<div class="conleft">
-                
+                    <form method="post" action="">
                         <input id="email" type="text" name="mailbox" class="mailbox" value="your@email.address">
-                        <input id="submit" type="submit" name="submit" value="">
-                
+                        <input type="submit" id="submit" name="submit" value="">
+                    </form>
+    
                 <div class="context">
-                <p>Send us your email address and we'll sign you up for our beta program and update you with our progress.</p>
+               <p>Send us your email address and we'll sign you up for our beta program and update you with our progress.</p>
                 <p><i>Please see our <a href="privacy.html">privacy policy</a> to learn how we store your information.</i></p>
                 </div>	
             </div>
@@ -42,71 +59,5 @@
 
 
 
-<script>
-
-window.onload = function(){
-	
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-41924210-1', 'wartisan.com');
-  ga('send', 'pageview');
-  
-    $('#dialogError').dialog({autoOpen: false,
-                        width: 200});
-	$('#dialogThanks').dialog({autoOpen: false,
-                        width: 200});
-	var text = '';					
-	var html;
-  
-   //设置email的默认值
-   document.getElementById("email").onfocus = function(){
-	   this.value = "";
-   }
-   document.getElementById("email").onblur = function(){
-	   if(this.value == ""){
-	   		this.value = "your@email.address";
-	   }
-   }
-   
-   //提交email
-   document.getElementById("submit").onclick = function(){
-	 
-	  var email = document.getElementById("email").value;
-	  if((!isValidmail(email))|| (email=="your@email.address")){
-		  //alert("Error");
-		  text = "Please enter a valid email!";
-		  html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + text +  
-    '  </p>' +
-    '</div>';
-		 return $(html).dialog({});		 
-		  //event.preventDefault();
-		  //return;
-	  }
-	  
-	   text = "Thanks for your attention!";
-	html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + text +  
-    '  </p>' +
-    '</div>';
-	return $(html).dialog({});
-	  function isValidmail(sEmail){
-		  var reMail = /^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d]+\-?)*[a-z\d]+\.)+([a-z]{2,})+$/i;
-		  var bValid = reMail.test(sEmail);
-		  return bValid;
-	  }
-	  
-  }
-  
-  
-
-}
-
-</script>
 </body>
 </html>
