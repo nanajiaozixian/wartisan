@@ -38,9 +38,10 @@ window.onload = function(){
    		 '  <p>' + text +  
     	'  </p>' +
    		 '</div>';
-		 $(html).dialog({draggable: false,
+		return $(html).dialog({draggable: false,
 		 						modal: true,
-								title: "Error"});	
+								title: "Error",
+								position: { my: "center", at: "center", of: window  }});	
 		
 	  }
 	  
@@ -68,7 +69,7 @@ window.onload = function(){
    		 '  <p>' + text +  
    		 '  </p>' +
    		 '</div>';
-		$(html).dialog({draggable: false,
+		return $(html).dialog({draggable: false,
 		 						modal: true,
 								title: "Thank you"});
 	
