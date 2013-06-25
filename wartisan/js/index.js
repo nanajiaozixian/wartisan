@@ -8,8 +8,15 @@ window.onload = function(){
   ga('create', 'UA-41924210-1', 'wartisan.com');
   ga('send', 'pageview');
   
-  var text = '';					
-	var html;
+  //设置submit按钮鼠标移动时的样式 
+  $("#submit").mouseenter(function(){
+	  $(this).css("opacity", "0.7");
+	  }).mouseout(function(){
+	  $(this).css("opacity", "1");
+	  });
+  
+  var text = ''; //保存弹窗消息					
+  var html; //保存弹窗div
   
   //设置email的默认值
    document.getElementById("email").onfocus = function(){
@@ -27,22 +34,16 @@ window.onload = function(){
 	  if((!isValidmail(email))||(email=="your@email.address")){
 		   text = "Please enter a valid email!";
 		  html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + text +  
-    '  </p>' +
-    '</div>';
+    	'<div class="dialog" id="dialog-message">' +
+   		 '  <p>' + text +  
+    	'  </p>' +
+   		 '</div>';
 		 return $(html).dialog({});	
 	  }
 	  
 	  postdata();
 	  
-	  text = "Thanks for your attention!";
-	html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + text +  
-    '  </p>' +
-    '</div>';
-	return $(html).dialog({});
+	 
 	  
 	  //正则判断email有效性
 	  function isValidmail(sEmail){
@@ -58,20 +59,15 @@ window.onload = function(){
 			  url: "storedata.php",
 			  data: "mailbox="+$("#email").val(),
 			  success: function(msg){
-		var text = "Thanks for your attention!";	
-	var html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + text +  
-    '  </p>' +
-    '</div>';
-	$(html).dialog({});
+		text = "Thanks for your attention!";	
+		html =
+   	 	'<div class="dialog" id="dialog-message">' +
+   		 '  <p>' + text +  
+   		 '  </p>' +
+   		 '</div>';
+		$(html).dialog({});
 	
-	html =
-    '<div class="dialog" id="dialog-message">' +
-    '  <p>' + msg +  
-    '  </p>' +
-    '</div>';
-	$(html).dialog({});
+
 			  }
 		  });
 	  }

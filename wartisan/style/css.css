@@ -78,9 +78,10 @@ body{
 	color:#FFF;
 	font-size:14px;}
 	
-input[type="submit"]{
+#submit {
 	background: url("../images/index6.gif");
 	width: 251px;
 	height: 63px;
 	border: 0px;
+	opacity: 1;
 }
