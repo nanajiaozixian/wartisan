@@ -38,7 +38,10 @@ window.onload = function(){
    		 '  <p>' + text +  
     	'  </p>' +
    		 '</div>';
-		 return $(html).dialog({});	
+		 $(html).dialog({draggable: false,
+		 						modal: true,
+								title: "Error"});	
+		
 	  }
 	  
 	  postdata();
@@ -65,7 +68,9 @@ window.onload = function(){
    		 '  <p>' + text +  
    		 '  </p>' +
    		 '</div>';
-		$(html).dialog({});
+		$(html).dialog({draggable: false,
+		 						modal: true,
+								title: "Thank you"});
 	
 
 			  }
