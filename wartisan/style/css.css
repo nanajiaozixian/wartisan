@@ -1,23 +1,26 @@
 body{
-	background:url(../images/index1.gif) repeat-x;
+	background:#232323;
 	margin:0px;
 	padding:0px;
 	font-size:14px;}
 #main{
 	display:block;
-	background:url(../images/index2.jpg) no-repeat center 66px;
+	/*background:url(../images/index2.jpg) no-repeat center 66px;*/
 	text-align:center;
 	}
-#container{
+.scenter{
+	background:url(../images/index1.gif) repeat-x;
+}
+.container{
 	width:960px;
 	padding:0px;
 	margin:0 auto;
 	}
 .header{
 	height:66px;
-	background:url(../images/index3.jpg) left no-repeat;}
+	background:url(../images/index3.png) left no-repeat;}
 .content{
-	margin-top:27px;
+	margin-top:0px;
 	}
 .content .conleft{
 	float:left;
@@ -56,29 +59,66 @@ body{
 	margin:12px;
 	background:#FFF;}
 .seccontent{
-	margin-top:15px;
-	height:184px;
 	width:958px;
 	border:1px solid #cacaca;
 	background:#f1f1f1;
 	text-align:left;
+	padding:0px;
 	}
 .seccontent img{
 	border:1px solid #c5c5c5;
-	margin:11px 20px;
 	cursor:pointer;
 	outline:none;}
 .footer{
-	background:#232323;
-	height:135px;
+	height:70px;
 	text-align:left;
 	margin-top:15px;}
 .footer div{
 	padding:20px;
 	color:#FFF;
 	font-size:14px;}
+.brief{
+	clear:both;
+	padding-left:10px;
+	}
+.brief ul{
+	padding:0px;
+	margin:0px;
+	padding-left:2px;
+	margin:5px 0px 5px 0px;
+	}
+.brief ul li{
+	float:left;
+	list-style:none;
+	width:232px;
+	text-align:center;
+	}
+.info{
+	color:#555;
+	width:197px;
+	text-align: left;
+	margin:5px auto;
+	word-wrap: break-word;
+	word-break: normal; }
+h4{
+	padding:0px;
+	margin:0px;}
+#skin{
+	 position:absolute; 
+	 top:5px;
+	 right:5px;
+	 z-index:999;
+}
+#skin span{
+	display:block;
+	float:left;
+	width:10px;
+	height:10px;
+	margin:5px;
+	background:#06F;
+	cursor:pointer;}
 	
-#submit {
+#submit{
 	background: url("../images/index6.gif");
 	width: 251px;
 	height: 63px;

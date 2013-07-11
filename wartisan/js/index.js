@@ -38,6 +38,11 @@ window.onload = function(){
    		 '  <p>' + text +  
     	'  </p>' +
    		 '</div>';
+		 //兼容ie
+		 if (window.ActiveXObject){
+			 alert(text);
+			 return;
+		 }
 		return $(html).dialog({draggable: false,
 		 						modal: true,
 								title: "Error",
@@ -69,6 +74,13 @@ window.onload = function(){
    		 '  <p>' + text +  
    		 '  </p>' +
    		 '</div>';
+		 
+		 //兼容ie
+		 if (window.ActiveXObject){
+			 alert(text);
+			 return;
+		 }
+		 
 		return $(html).dialog({draggable: false,
 		 						modal: true,
 								title: "Thank you"});
