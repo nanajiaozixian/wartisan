@@ -125,3 +125,14 @@ h4{
 	border: 0px;
 	opacity: 1;
 }
+
+
+/******errormessage********/
+#errormessage {
+	font-size: 14px;
+	color: white;
+	padding: 0px 15px;
+	margin: 1px;
+	/*width: 120px;*/
+	text-align:left;
+}

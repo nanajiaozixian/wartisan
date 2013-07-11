@@ -21,6 +21,14 @@ window.onload = function(){
   //设置email的默认值
    document.getElementById("email").onfocus = function(){
 	   this.value = "";
+	   var container = document.getElementById("signup");
+	   
+	   var errorRemind = document.getElementById("errormessage");
+	   if(errorRemind){
+	   container.removeChild(errorRemind);
+	   var submitBtn = document.getElementById("submit");
+	   submitBtn.disabled = false;
+	   }
    }
    document.getElementById("email").onblur = function(){
 	    if(this.value == ""){
@@ -33,6 +41,7 @@ window.onload = function(){
 	  var email = document.getElementById("email").value;
 	  if((!isValidmail(email))||(email=="your@email.address")){
 		   text = "Please enter a valid email!";
+		  /*弹出错误提醒框
 		  html =
     	'<div class="dialog" id="dialog-message">' +
    		 '  <p>' + text +  
@@ -46,7 +55,17 @@ window.onload = function(){
 		return $(html).dialog({draggable: false,
 		 						modal: true,
 								title: "Error",
-								position: { my: "center", at: "center", of: window  }});	
+								position: { my: "center", at: "center", of: window  }});
+								*/
+		var errorRemind = document.createElement("p");
+		var errorText =  document.createTextNode(text);
+		errorRemind.id = "errormessage";
+		errorRemind.appendChild(errorText);
+		var container = document.getElementById("signup");
+		var submitBtn = document.getElementById("submit");
+		container.insertBefore(errorRemind, submitBtn);
+		submitBtn.disabled = true;
+		return;	
 		
 	  }
 	  
