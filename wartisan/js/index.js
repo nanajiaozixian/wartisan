@@ -82,10 +82,15 @@ window.onload = function(){
 	  
 	  //提交数据
 	  function postdata(){
-		  $.ajax({
+		  var datasent = "CLIENT\n"+ "email: " + $("#email").val();
+		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
+	        //$('p').html('My IP Address is: ' + data.host);
+			datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
+			
+			$.ajax({
 			  type: "POST",
 			  url: "storedata.php",
-			  data: "mailbox="+$("#email").val(),
+			  data: "mailbox="+datasent,
 			  success: function(msg){
 		text = "Thanks for your attention!";	
 		html =
@@ -107,6 +112,8 @@ window.onload = function(){
 
 			  }
 		  });
+	    });
+		  
 	  }
 	  
 	  
