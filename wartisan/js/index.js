@@ -32,14 +32,18 @@ window.onload = function(){
    }
    document.getElementById("email").onblur = function(){
 	    if(this.value == ""){
-	   		this.value = "your@email.address";
+	   		this.value = "your@mail.com";
 	   }
    }
+   //显示小视频
+   $(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
+   $(".management").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
+   $(".timeline").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
    
    //提交email
    document.getElementById("submit").onclick = function(){
 	  var email = document.getElementById("email").value;
-	  if((!isValidmail(email))||(email=="your@email.address")){
+	  if((!isValidmail(email))||(email=="your@mail.com")){
 		   text = "Please enter a valid email!";
 		  /*弹出错误提醒框
 		  html =
@@ -57,19 +61,20 @@ window.onload = function(){
 								title: "Error",
 								position: { my: "center", at: "center", of: window  }});
 								*/
-		var errorRemind = document.createElement("p");
+		/*var errorRemind = document.createElement("p");
 		var errorText =  document.createTextNode(text);
 		errorRemind.id = "errormessage";
 		errorRemind.appendChild(errorText);
 		var container = document.getElementById("signup");
-		var submitBtn = document.getElementById("submit");
+		var submitBtn = document.getElementById("ctext");
 		container.insertBefore(errorRemind, submitBtn);
-		submitBtn.disabled = true;
+		submitBtn.disabled = true;*/
+		alert(text);
 		return;	
 		
 	  }
 	  
-	  postdata();
+	  postdata(email);
 	  
 	 
 	  
@@ -81,8 +86,9 @@ window.onload = function(){
 	  }
 	  
 	  //提交数据
-	  function postdata(){
-		  var datasent = "CLIENT\n"+ "email: " + $("#email").val();
+	  function postdata(email_x){
+		  
+		  var datasent = "CLIENT\n"+ "email: " + email_x;
 		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
 	        //$('p').html('My IP Address is: ' + data.host);
 			datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;

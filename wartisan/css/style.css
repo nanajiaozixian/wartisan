@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{padding:0; margin:0; background:#FFF; font-size:16px; font-family: Verdana, Geneva, sans-serif,Arial, Helvetica, sans-serif;}
+.header{width:960px; height:96px; background:url(../images/001.gif) no-repeat; margin:0 auto;}
+.container{ background:#42abe2; }
+.skin2bg{background:url(../images/bgbg.jpg);filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+-moz-background-size:100% 100%; background-size:100% 100%;}
+.container .maincontent{width:960px; height:554px; margin:0 auto;}
+.container .maincontent .cleft{ float:left; width:297px;}
+
+.container .maincontent .cleft p{margin:0; padding:0;}
+.container .maincontent .cleft p.tsignup{ margin-top:25px; margin-left:18px; height:60px; width:232px; background:url(../images/003.png) no-repeat}
+.container .maincontent .cleft p.ctext input{width:237px; height:58px; border:1px solid #999; line-height:58px;font-size:24px; color:#333; margin-left:18px;}
+.container .maincontent .cleft p.cbutton input{ width:245px; height:65px; margin:10px 0 0px 15px; background:url(../images/004.gif) no-repeat; border:0;}
+.container .maincontent .cleft p.promotext{ margin:10px 20px 0px 18px; font-size:18px; color:#fff;}
+.container .maincontent .cleft p.smal{ font-size:16px;}
+.container .maincontent .cright{ margin-left:297px;}
+.vconent{width:661px; height:515px; background:#286baf; float:right;}
+.container .maincontent .skin2bo{background:#393535;}
+.vconent .video{margin:10px; width:641px; height:495px; background:#FFF;}
+.brief{width:960px; clear:both;color: #555555; margin: 5px auto; text-align: left; word-break: normal; word-wrap: break-word;}
+.brief ul{padding:0px; margin:0px;}
+.brief ul li{ float:left; list-style:none; width:240px;  margin:20px 0px 5px 0px;}
+.brief ul li .info{ width:220px; margin:5px 0px;}
+.brief ul li .info h4{ margin:0; padding:0;margin:5px 0px;}
+.brief ul li .info p{ margin:0; padding:0;}
+.clink{ background:#eee; border:1px solid #ddd; border-left:0; border-right:0; height:84px;}
+.clink .icon{text-align:right; width:960px; margin:15px auto;}
+.clink .icon .ico{ display:inline-block; height: 53px;margin-left: 17px;overflow: hidden;vertical-align: middle;width: 50px; background:url(../images/sprite.png) no-repeat;}
+.clink .icon .icon1{background-position: 0 0;}
+.clink .icon .icon2{background-position: -50px 0;}
+.footer{text-align:left; width:960px; height:80px; line-height:80px; margin:0 auto; font-size:14px;}
+#skin{position:absolute; top:5px; right:5px; z-index:999;}
+#skin span{display:block;float:left;width:10px;height:10px;margin:5px;background:#06F;cursor:pointer;}
