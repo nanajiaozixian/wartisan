@@ -33,3 +33,6 @@ body{padding:0; margin:0; background:#FFF; font-size:16px; font-family: Verdana,
 .footer{text-align:left; width:960px; height:80px; line-height:80px; margin:0 auto; font-size:14px;}
 #skin{position:absolute; top:5px; right:5px; z-index:999;}
 #skin span{display:block;float:left;width:10px;height:10px;margin:5px;background:#06F;cursor:pointer;}
+
+/*bingna：添加errormessage样式*/
+#errormessage{color: red; margin: 3px 0 0 20px;}

@@ -1,5 +1,6 @@
 window.onload = function(){
 	
+/***************************老大提供的代码段*******************************/	
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -7,18 +8,21 @@ window.onload = function(){
 
   ga('create', 'UA-41924210-1', 'wartisan.com');
   ga('send', 'pageview');
-  
-  //设置submit按钮鼠标移动时的样式 
+/***********************************************************************/
+
+/************************* 添加事件响应  ******************/
+ //*******设置submit按钮鼠标移动时的样式
   $("#submit").mouseenter(function(){
 	  $(this).css("opacity", "0.7");
 	  }).mouseout(function(){
 	  $(this).css("opacity", "1");
 	  });
-  
+  //end
+/***********************************************************************/ 
   var text = ''; //保存弹窗消息					
   var html; //保存弹窗div
   
-  //设置email的默认值
+  //*******设置email的默认值
    document.getElementById("email").onfocus = function(){
 	   this.value = "";
 	   var container = document.getElementById("signup");
@@ -30,54 +34,44 @@ window.onload = function(){
 	   submitBtn.disabled = false;
 	   }
    }
+   //end
+   
    document.getElementById("email").onblur = function(){
 	    if(this.value == ""){
 	   		this.value = "your@mail.com";
 	   }
    }
-   //显示小视频
+   //end
+/*************使用colorbox插件显示小视频***************************/
    $(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390});
    $(".management").colorbox({iframe:true, innerWidth:640, innerHeight:390});
    $(".timeline").colorbox({iframe:true, innerWidth:640, innerHeight:390});
    
+/***************************************************************/
+
+
+/*************email注册*************************/   
    //提交email
    document.getElementById("submit").onclick = function(){
 	  var email = document.getElementById("email").value;
 	  if((!isValidmail(email))||(email=="your@mail.com")){
 		   text = "Please enter a valid email!";
-		  /*弹出错误提醒框
-		  html =
-    	'<div class="dialog" id="dialog-message">' +
-   		 '  <p>' + text +  
-    	'  </p>' +
-   		 '</div>';
-		 //兼容ie
-		 if (window.ActiveXObject){
-			 alert(text);
-			 return;
-		 }
-		return $(html).dialog({draggable: false,
-		 						modal: true,
-								title: "Error",
-								position: { my: "center", at: "center", of: window  }});
-								*/
-		/*var errorRemind = document.createElement("p");
+		 
+		var errorRemind = document.createElement("p");
 		var errorText =  document.createTextNode(text);
 		errorRemind.id = "errormessage";
 		errorRemind.appendChild(errorText);
 		var container = document.getElementById("signup");
-		var submitBtn = document.getElementById("ctext");
+		var submitBtn = document.getElementsByClassName("cbutton")[0];
+		var submitbutton = document.getElementById("submit");
 		container.insertBefore(errorRemind, submitBtn);
-		submitBtn.disabled = true;*/
-		alert(text);
+		submitbutton.disabled = true;
 		return;	
 		
 	  }
 	  
 	  postdata(email);
-	  
-	 
-	  
+	    
 	  //正则判断email有效性
 	  function isValidmail(sEmail){
 		  var reMail = /^(?:[a-z\d]+[_\-\+\.]?)*[a-z\d]+@(?:([a-z\d]+\-?)*[a-z\d]+\.)+([a-z]{2,})+$/i;
@@ -89,7 +83,7 @@ window.onload = function(){
 	  function postdata(email_x){
 		  
 		  var datasent = "CLIENT\n"+ "email: " + email_x;
-		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
+		  var a = $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
 	        //$('p').html('My IP Address is: ' + data.host);
 			datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
 			
@@ -99,7 +93,8 @@ window.onload = function(){
 			  data: "mailbox="+datasent,
 			  success: function(msg){
 		text = "Thanks for your attention!";	
-		html =
+		alert(text);
+		/*html =
    	 	'<div class="dialog" id="dialog-message">' +
    		 '  <p>' + text +  
    		 '  </p>' +
@@ -115,13 +110,14 @@ window.onload = function(){
 		 						modal: true,
 								title: "Thank you"});
 	
-
+		*/
 			  }
 		  });
 	    });
+		
 		  
 	  }
-	  
+	 //end postdata
 	  
   }
   
