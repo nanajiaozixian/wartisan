@@ -36,9 +36,9 @@ window.onload = function(){
 	   }
    }
    //显示小视频
-   $(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
-   $(".management").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
-   $(".timeline").colorbox({iframe:true, innerWidth:640, innerHeight:390, opacity:0.5});
+   $(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+   $(".management").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+   $(".timeline").colorbox({iframe:true, innerWidth:640, innerHeight:390});
    
    //提交email
    document.getElementById("submit").onclick = function(){
