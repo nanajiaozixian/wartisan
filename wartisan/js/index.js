@@ -50,7 +50,7 @@ window.onload = function(){
 /***************************************************************/
 
 
-/*************email注册*************************/   
+/*************email注册提交*************************/   
    //提交email
    document.getElementById("submit").onclick = function(){
 	  var email = document.getElementById("email").value;
@@ -83,7 +83,7 @@ window.onload = function(){
 	  function postdata(email_x){
 		  
 		  var datasent = "CLIENT\n"+ "email: " + email_x;
-		  var a = $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
+		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
 	        //$('p').html('My IP Address is: ' + data.host);
 			datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
 			
@@ -120,6 +120,23 @@ window.onload = function(){
 	 //end postdata
 	  
   }
-  
+/**************************************************************/
+
+  window.onbeforeunload = function() { 
+	var time;
+	getInfo();
+  	
+  }
+	function getInfo(){
+  	var pl=document.getElementById("video");
+    time=pl.currentTime;
+	var vLength = pl.duration.toFixed(1);
+	
+	
+   //alert(parseInt(pl.currentMedia.durationString.substring(3,5)));
+   // alert(parseInt(pl.currentMedia.durationString.substring(0,2)*60)+parseInt(pl.currentMedia.durationString.substring(3,5)));
+	return;
+ 	}
+   
   
 }
