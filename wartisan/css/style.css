@@ -15,6 +15,7 @@ body{padding:0; margin:0; background:#FFF; font-size:16px; font-family: Verdana,
 .container .maincontent .cleft p.cbutton input{ width:245px; height:65px; margin:10px 0 0px 15px; background:url(../images/004.gif) no-repeat; border:0;}
 .container .maincontent .cleft p.promotext{ margin:10px 20px 0px 18px; font-size:18px; color:#fff;}
 .container .maincontent .cleft p.smal{ font-size:16px;}
+.container .maincontent .cleft p.smal a{ color:#b4e0ff}
 .container .maincontent .cright{ margin-left:297px;}
 .vconent{width:661px; height:515px; background:#286baf; float:right;}
 .container .maincontent .skin2bo{background:#393535;}
@@ -32,7 +33,7 @@ body{padding:0; margin:0; background:#FFF; font-size:16px; font-family: Verdana,
 .clink .icon .icon2{background-position: -50px 0;}
 .footer{text-align:left; width:960px; height:80px; line-height:80px; margin:0 auto; font-size:14px;}
 #skin{position:absolute; top:5px; right:5px; z-index:999;}
-#skin span{display:block;float:left;width:10px;height:10px;margin:5px;background:#06F;cursor:pointer;}
+#skin span{display:block;float:left;width:10p
 
 /*bingna：添加errormessage样式*/
 #errormessage{color: red; margin: 3px 0 0 20px;}

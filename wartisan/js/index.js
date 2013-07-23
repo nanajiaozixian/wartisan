@@ -69,8 +69,16 @@ window.onload = function(){
 		return;	
 		
 	  }
+	  var datasent = "CLIENT\n"+ "email: " + email_x;
+		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
+	        //$('p').html('My IP Address is: ' + data.host);
+				datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
+				postdata(datasent);		
+					  
+				text = "Thanks for your attention!";	
+				alert(text);
+	    });
 	  
-	  postdata(email);
 	    
 	  //正则判断email有效性
 	  function isValidmail(sEmail){
@@ -79,44 +87,7 @@ window.onload = function(){
 		  return bValid;
 	  }
 	  
-	  //提交数据
-	  function postdata(email_x){
-		  
-		  var datasent = "CLIENT\n"+ "email: " + email_x;
-		  $.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
-	        //$('p').html('My IP Address is: ' + data.host);
-			datasent =  datasent +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
-			
-			$.ajax({
-			  type: "POST",
-			  url: "storedata.php",
-			  data: "mailbox="+datasent,
-			  success: function(msg){
-		text = "Thanks for your attention!";	
-		alert(text);
-		/*html =
-   	 	'<div class="dialog" id="dialog-message">' +
-   		 '  <p>' + text +  
-   		 '  </p>' +
-   		 '</div>';
-		 
-		 //兼容ie
-		 if (window.ActiveXObject){
-			 alert(text);
-			 return;
-		 }
-		 
-		return $(html).dialog({draggable: false,
-		 						modal: true,
-								title: "Thank you"});
-	
-		*/
-			  }
-		  });
-	    });
-		
-		  
-	  }
+	 
 	 //end postdata
 	  
   }
@@ -124,19 +95,25 @@ window.onload = function(){
 
   window.onbeforeunload = function() { 
 	var time;
-	getInfo();
-  	
-  }
+		getInfo();	
+  	}
 	function getInfo(){
-  	var pl=document.getElementById("video");
-    time=pl.currentTime;
-	var vLength = pl.duration.toFixed(1);
-	
-	
-   //alert(parseInt(pl.currentMedia.durationString.substring(3,5)));
-   // alert(parseInt(pl.currentMedia.durationString.substring(0,2)*60)+parseInt(pl.currentMedia.durationString.substring(3,5)));
-	return;
+  		var pl=document.getElementById("video");
+    	time = "video1: " + pl.currentTime +"s";
+    	postdata(time);
  	}
    
-  
+   //提交数据
+function postdata(datasent){
+		  
+	$.ajax({
+			  type: "POST",
+			  url: "storedata.php",
+			  data: "mailbox="+datasent,
+			  success: function(msg){
+				return;
+			  }
+		  });
+					  
+	}
 }
