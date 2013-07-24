@@ -1,7 +1,7 @@
 /*******************************************
 功能： index.js 主要控制index.html页面的所有动态操作。
 建立日期： 2013年7月23日。
-作者： 刘冰娜
+作者： Doris
 
 ********************************************/
 window.onload = function(){
@@ -26,7 +26,6 @@ $("#submit").mouseenter(function(){
 });
 //end
 /***********************************************************************/
-var text = ''; //保存弹窗消息
 
 //*******设置email的默认值
 document.getElementById("email").onfocus = function(){
@@ -74,7 +73,11 @@ document.getElementById("submit").onclick = function(){
 		return;
 
 	}
-	var emailsent = "Sign Up Email: "+ email;
+	//获取当前时间
+	var d = new Date();
+	var t = d.getDate() + "-" +(d.getMonth()+1) + "-" + d.getFullYear() + "   " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+	
+	var emailsent = "Sign Up Email: "+ email + "   time: "+t;
 	$.ajax({
 		type: "POST",
 		url: "storedata.php",
@@ -84,9 +87,6 @@ document.getElementById("submit").onclick = function(){
 			window.location="features.html"; 
 		}
 	});
-
-	
-
 
 
 	//正则判断email有效性
