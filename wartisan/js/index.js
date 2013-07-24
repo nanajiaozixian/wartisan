@@ -49,7 +49,7 @@ document.getElementById("email").onblur = function(){
 }
 //end
 /*************使用colorbox插件显示小视频***************************/
-$(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390});
+//$(".collaboration").colorbox({iframe:true, innerWidth:640, innerHeight:390});
 $(".management").colorbox({iframe:true, innerWidth:640, innerHeight:390});
 $(".timeline").colorbox({iframe:true, innerWidth:640, innerHeight:390});
 
@@ -75,10 +75,17 @@ document.getElementById("submit").onclick = function(){
 
 	}
 	var emailsent = "Sign Up Email: "+ email;
-	postdata(emailsent);
+	$.ajax({
+		type: "POST",
+		url: "storedata.php",
+		data: "mailbox="+emailsent,
+		success: function(msg){
+			var text = "Thanks for your attention!";
+			window.location="features.html"; 
+		}
+	});
 
-	var text = "Thanks for your attention!";
-	alert(text);
+	
 
 
 
