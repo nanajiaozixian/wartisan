@@ -74,8 +74,7 @@ document.getElementById("submit").onclick = function(){
 
 	}
 	//获取当前时间
-	var d = new Date();
-	var t = d.getDate() + "-" +(d.getMonth()+1) + "-" + d.getFullYear() + "   " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+	var t = getCurTime();
 	
 	var emailsent = "Sign Up Email: "+ email + "   time: "+t;
 	$.ajax({
@@ -144,11 +143,18 @@ function getInfo(){
 //获取客户的IP、国家等信息
 function getClientInfor(){
 	var client = "*************************Client***************************";
+	var t = getCurTime();
 	$.getJSON('http://smart-ip.net/geoip-json?callback=?', function(data) {
-		client =  client +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
+		client =  client +'\nVisit Time: '+ t +'\nIP: ' + data.host + ' CountryName: ' + data.countryName + ' CityName: ' +data.city;
 		postdata(client);
 	});
 }
 
+function getCurTime(){
+	//获取当前时间
+	var d = new Date();
+	var t = d.getDate() + "-" +(d.getMonth()+1) + "-" + d.getFullYear() + "   " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+	return t;
+}
 
 }
